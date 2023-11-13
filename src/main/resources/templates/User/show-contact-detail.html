@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="User/base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>Document</title>
+</head>
+<body>
+	<section>
+		<div class="card ml-3 mr-3">
+
+			<div class="card-body" th:if="${contectdetail}">
+				<div class="container text-center me-5">
+					<img class="profile-photo"
+						style="width: 10rem; height: 10rem; border-radius: 5rem;"
+						th:src="@{'/image/'+${contectdetail.profileImage}}"
+						alt="profile photo" />
+					<h1
+						th:text="${contectdetail.name}+${'('+contectdetail.nickName+')'}"></h1>
+					<table class="table text-center">
+						<thead>
+							<tr>
+								<th scope="col">#ID</th>
+								<th scope="col"><span th:text="'SCM'+${contectdetail.cId}"></span></th>
+							</tr>
+
+
+						</thead>
+						<tbody>
+							<tr>
+								<th scope="col">Email</th>
+								<td scope="col"><span th:text="${contectdetail.email}"></span></td>
+							</tr>
+							<tr>
+								<th scope="col">Work</th>
+								<td scope="col"><span th:text="${contectdetail.work}"></span></td>
+							</tr>
+							<tr>
+								<th scope="col">Phone No</th>
+								<td scope="col"><span th:text="${contectdetail.phoneNo}"></span></td>
+							</tr>
+
+
+						</tbody>
+
+					</table>
+					<div class="discription">
+						<h2>Discription</h2>
+						<th:block th:text="${contectdetail.discription}"></th:block>
+					</div>
+					<div class="button-design">
+						<form method="post"
+							th:action="@{'/user/update/'+${contectdetail.cId}}">
+							<button type="submit" class="btn btn-success">Update</button>
+						</form>
+						<a th:href="@{'/user/deletes/'+${contectdetail.cId}}"><button
+								class="btn btn-danger">Delete</button></a>
+
+					</div>
+
+
+
+				</div>
+
+			</div>
+
+		</div>
+		<h1 th:unless="${contectdetail}">Something Wrong</h1>
+
+	</section>
+
+</body>
+</html>

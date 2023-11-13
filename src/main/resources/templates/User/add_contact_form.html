@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="User/base::layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title th:text="${title}">Document</title>
+</head>
+<body>
+	<section>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12  ">
+					<div class="my-card ms-3">
+
+						<h1 class="text-center">Add Contacts</h1>
+						<!-- form -->
+						<form method="post" th:action="@{/user/save-contact}"
+							th:object="${contact}" enctype="multipart/form-data">
+							<!-- name-filed -->
+							<div class="mb-3 ms-5">
+								<input type="text" class="form-control"
+									placeholder="Enter Name Here" name="name" required
+									id="name-field">
+							</div>
+							<div class="mb-3 ms-5">
+								<input type="text" class="form-control"
+									placeholder="Enter Nickname Here" name="nickName" required
+									id="name-field">
+							</div>
+							<div class="mb-3 ms-5">
+								<input type="text" class="form-control"
+									placeholder="Enter Number Here" name="phoneNo" required
+									id="number-field">
+							</div>
+							<div class="mb-3 ms-5">
+								<input type="email" class="form-control"
+									placeholder="Enter Email Here" name="email" required
+									id="email-field" aria-describedby="emailHelp">
+							</div>
+							<div class="mb-3 ms-5">
+
+								<input type="text" class="form-control"
+									placeholder="Enter Work Here" name="work" required
+									id="work-field">
+							</div>
+							<div class="mb-3 ms-5">
+
+								<input type="file" class="form-control" name="profileImage"
+									id="image-field" >
+							</div>
+							<div class="form-group">
+								<textarea name="discription" placeholder="enter your self"
+									id="myTextarea" rows="10" class="form-control"></textarea>
+							</div>
+
+							<div class="container text-center mt-2">
+								<button type="submit" class="btn btn-primary ">Save
+									Contact</button>
+
+							</div>
+						</form>
+						<!-- end-form -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript"
+			src='https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js'
+			referrerpolicy="origin">
+			
+		</script>
+		 <script type="text/javascript">
+  tinymce.init({
+    selector: '#myTextarea',
+    
+    height: 300,
+    plugins: [
+      'advlist', 'autolink', 'link', 'image', 'lists', 'charmap', 'preview', 'anchor', 'pagebreak',
+      'searchreplace', 'wordcount', 'visualblocks', 'visualchars', 'code', 'fullscreen', 'insertdatetime',
+      'media', 'table', 'emoticons', 'template', 'help'
+    ],
+    toolbar: 'undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | ' +
+      'bullist numlist outdent indent | link image | print preview media fullscreen | ' +
+      'forecolor backcolor emoticons | help',
+    menu: {
+      favs: { title: 'My Favorites', items: 'code visualaid | searchreplace | emoticons' }
+    },
+    menubar: 'favs file edit view insert format tools table help',
+    content_css: 'css/content.css'
+  });
+  </script>
+	</section>
+
+</body>
+</html>

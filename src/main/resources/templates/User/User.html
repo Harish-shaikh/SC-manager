@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="User/base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<section>
+    <h1>hello user wel come to your website</h1>
+    <h1 th:text="${userdata.name}"></h1>
+    <h1><a th:href="@{/logout}">Logout</a></h1>
+   
+    </div>
+</section>
+    
+</body>
+</html>
